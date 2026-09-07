@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yuchan27.github.io/sitemap.xml
