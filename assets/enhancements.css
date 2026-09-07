@@ -1,0 +1,22 @@
+/* Additive contact and locale controls. Original site.css is unchanged. */
+.icon{display:inline-block;width:1em;height:1em;flex-shrink:0;vertical-align:-.14em}
+.asterisk .icon,.food-symbol .icon{vertical-align:baseline}
+.language-switch{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:3px;padding:2px}
+.language-switch a{font:11px var(--mono);letter-spacing:.02em;min-width:40px;min-height:38px;padding:10px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.language-switch a:hover{color:var(--ink)}
+.language-switch a[aria-current=page]{color:var(--ink);background:#202421;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.hero-email{display:inline-flex;gap:10px;align-items:center;margin-top:20px;min-height:38px;font:12px var(--mono);color:var(--muted)}
+.hero-email:hover,.email-link:hover{color:var(--accent)}
+.hero-email .icon,.email-link .icon{width:16px;height:16px}
+.email-link{gap:9px}
+.contact-bottom>div{justify-content:flex-end;row-gap:6px}
+.contact-bottom>p{flex-shrink:0}
+.contact-bottom .email-link{flex-basis:100%;justify-content:flex-end}
+html[lang=en] .hero-description{max-width:550px}
+html[lang=en] .intro-note{max-width:350px}
+html[lang=en] .section-description{max-width:330px}
+html[lang=en] .project-body h3>span{line-height:1.6}
+@media(max-width:1050px){.main-nav{gap:18px}.header-actions{gap:14px}.header-contact{gap:10px}}
+@media(max-width:800px){.header-actions{gap:10px}.header-contact{font-size:9px;gap:8px}.language-switch a{padding:8px;min-width:34px;font-size:10px}.contact-bottom>p{flex-shrink:1}.contact-bottom>div{justify-content:flex-start}.contact-bottom .email-link{justify-content:flex-start}}
+@media(max-width:700px) and (min-width:561px){.main-nav{gap:11px}.main-nav a{font-size:11px}.header-contact{display:none}}
+@media(max-width:560px){.header-actions{gap:8px}.header-contact{display:none}.language-switch a{min-height:38px;min-width:39px}.hero-email{font-size:11px;margin-top:13px}.hero-email .icon{width:15px;height:15px}html[lang=en] .hero-description .desktop-break{display:none}}

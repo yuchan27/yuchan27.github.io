@@ -2,6 +2,7 @@
 (() => {
   'use strict';
   const root = document.documentElement;
+  const tr = (en, zh) => root.lang === 'zh-Hant' ? zh : en;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reduced.matches;
   let explicitMotionChoice = false;
@@ -12,7 +13,7 @@
     root.dataset.motion = value ? 'off' : 'on';
     if (motionButton) {
       motionButton.setAttribute('aria-pressed', String(value));
-      motionButton.textContent = value ? '播放動態 ▷' : '暫停動態 Ⅱ';
+      motionButton.textContent = value ? tr('Play animation', '\u64ad\u653e\u52d5\u614b') : tr('Pause animation', '\u66ab\u505c\u52d5\u614b');
     }
     motionCallbacks.forEach(callback => callback());
   }
@@ -31,13 +32,13 @@
   function closeMenu(restoreFocus = false) {
     nav?.classList.remove('open');
     menuButton?.setAttribute('aria-expanded', 'false');
-    menuButton?.setAttribute('aria-label', '開啟選單');
+    menuButton?.setAttribute('aria-label', tr('Open menu', '\u958b\u555f\u9078\u55ae'));
     if (restoreFocus) menuButton?.focus();
   }
   menuButton?.addEventListener('click', () => {
     const open = menuButton.getAttribute('aria-expanded') !== 'true';
     menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
+    menuButton.setAttribute('aria-label', open ? tr('Close menu', '\u95dc\u9589\u9078\u55ae') : tr('Open menu', '\u958b\u555f\u9078\u55ae'));
     nav?.classList.toggle('open', open);
   });
   nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
@@ -61,7 +62,7 @@
       card.hidden = !matches;
       if (matches) visible += 1;
     });
-    if (count) count.textContent = `${String(visible).padStart(2, '0')} PROJECTS / PRACTICES`;
+    if (count) count.textContent = `${String(visible).padStart(2, '0')} ${tr('PROJECTS / PRACTICES', '\u500b\u5c08\u6848 / \u5be6\u4f5c')}`;
   }));
 
   // Restrained entrances. Elements are visible even if JS or observers fail.
@@ -108,9 +109,20 @@
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
       await navigator.clipboard.writeText(url);
-      notify('網站連結已複製');
+      notify(tr('Website link copied', '\u7db2\u7ad9\u9023\u7d50\u5df2\u8907\u88fd'));
     } catch {
-      notify(`請複製網址：${url}`);
+      notify(`${tr('Copy this URL: ', '\u8acb\u8907\u88fd\u7db2\u5740\uff1a')}${url}`);
+    }
+  });
+
+  document.querySelector('#copy-email')?.addEventListener('click', async () => {
+    const email = 'wuwu6249@gmail.com';
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(email);
+      notify(tr('Email copied', '\u4fe1\u7bb1\u5df2\u8907\u88fd'));
+    } catch {
+      notify(`${tr('Email: ', '\u4fe1\u7bb1\uff1a')}${email}`);
     }
   });
 

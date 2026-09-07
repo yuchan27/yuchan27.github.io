@@ -1,1 +1,13 @@
-{"name":"yuchan-portfolio","version":"2.0.0","private":true,"description":"Dependency-free GitHub Pages portfolio","scripts":{"check":"node --check assets/site.js && node scripts/check.mjs","test":"npm run check"},"engines":{"node":">=22"}}
+{
+  "name": "yuchan-portfolio",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Dependency-free GitHub Pages portfolio",
+  "scripts": {
+    "check": "node --check assets/site.js && node --check assets/language.js && node scripts/check.mjs",
+    "test": "npm run check"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

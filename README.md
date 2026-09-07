@@ -1,47 +1,47 @@
-# yuchan — Backend × AI
+# yuchan - Backend x AI
 
-Personal portfolio of **Yu-Cheng Chien / yuchan**, a fourth-year Computer Science and Information Engineering student at National Kaohsiung University of Science and Technology.
+Personal portfolio of Yu-Cheng Chien / yuchan. NKUST Computer Science and Information Engineering, Year 4.
 
-**Website:** https://yuchan27.github.io/
+[English website](https://yuchan27.github.io/?lang=en) | [Traditional Chinese website](https://yuchan27.github.io/zh/?lang=zh) | [Email](mailto:wuwu6249@gmail.com)
 
-## Publishing
+## Contact and language update (2.1)
 
-This is a dependency-free static website. GitHub Pages publishes **main / (root)** using the repository's existing branch source. The root `index.html` is the homepage; `.nojekyll` prevents Jekyll from substituting the README or processing assets.
+This update preserves the restored v2 design: black background, warm accents, animated knot, project illustrations and native expandable notes. `assets/site.css` is unchanged from commit `beffba34ec596366804025e12882e96e224b47c8`.
 
-No Next.js build, npm installation, deployment token, or environment secret is required. The custom workflow now validates files; GitHub's built-in **pages build and deployment** workflow handles publication. Keep **Settings → Pages → Source → Deploy from a branch → main → / (root)**.
+- Textual EN / Traditional Chinese navigation at the top. Both pages contain fully rendered HTML and work without a translation service. Initial root content is English; optional local storage remembers explicit language choices. `?lang=en` and `?lang=zh` links override preferences.
+- `wuwu6249@gmail.com` is visible in the hero and contact section, with mailto links and a copy-email control.
+- Emoji and glyph-based UI icons have been replaced with local, single-color SVGs or plain text. No icon font, flag emoji or external icon library is required.
+- `assets/enhancements.css` adds only icon, contact and language-control styles, plus wrapping adjustments for translated text.
 
-The earlier Next.js version remains in Git history. Version 2 removes the failed dependency-cache/build pipeline and publishes the finished page directly.
+The headings, project titles and decorative English captions remain part of the shared visual identity. The Chinese page retains the original English project titles with Chinese descriptions; the English page translates navigation, biography, skills, project descriptions and engineering notes.
 
-## Edit / preview
+## Edit and publish
 
-- `index.html`: profile, projects, skills and contact links.
-- `assets/site.css`: responsive editorial layout, black / copper / olive palette.
-- `assets/site.js`: filters, mobile navigation, optional motion, generative canvas and copy-link interaction.
-- `assets/favicon.svg`, `404.html`, `robots.txt`, `sitemap.xml`: site metadata.
+- `index.html`: English page.
+- `zh/index.html`: Traditional Chinese page.
+- `assets/site.css`: original v2 styling; keep unchanged unless a redesign is requested.
+- `assets/enhancements.css`: small additions.
+- `assets/site.js`: original interactions and artwork, with localized messages and email copy.
+- `assets/language.js`: optional preference handling and language-link anchors.
 
 ```sh
-# Validation (Node.js 22 or later; no dependencies to install)
 npm test
-
-# Local preview with Python 3
 python -m http.server 8080
 ```
 
-Open http://localhost:8080 in your browser. Updating the files on `main` triggers GitHub Pages publication.
+No dependency installation or build step is required. GitHub Pages publishes **main / (root)**; `.nojekyll` is retained. The custom GitHub workflow validates the files, while GitHub's native Pages workflow publishes them.
 
-## Content and design
+## Validation
 
-The profile and learning focus come from the owner's self-description. Technical summaries use project documentation and the owner's stated experience. Public project links include FoodLens AI, PyroDetector, Cat Future Lab, Wasteland Recycler and Smart Diet Ledger. Private work is described only at a technical-summary level: no private source, credentials, datasets, customer information or internal URLs are included. RAG integration documentation describes keyword + vector retrieval, reranking and fallback; it does not establish live production performance.
+`npm test` checks both language pages, local links and anchors, six project entries, email links, script syntax and absence of emoji glyphs. The exact submitted English page, Chinese page and main JavaScript were hash-matched to the locally tested files.
 
-The visual direction references the editorial typography and restrained interaction in Awwwards portfolio work, including the portfolio collection and the Emilian creative-developer nominee (August 8, 2026). The design, CSS concept posters and animated mathematical knot are original implementations, not copied assets or an award claim.
+The pages were rendered in Chromium from in-memory HTML/CSS/JS at 320, 390, 560, 640, 768, 1024, 1440 and 1920px, in both languages. Those 16 layouts passed horizontal-overflow checks, project filtering, native details, mobile menu checks where applicable, and clipboard-unavailable fallback messages. Both static pages also retained their content with JavaScript disabled. Actual network navigation and successful system clipboard writes were not verified in that restricted browser environment.
 
-- https://www.awwwards.com/websites/portfolio/
-- https://www.awwwards.com/sites/emilian-creative-developer
+## UI references
 
-Project visuals are conceptual illustrations, not screenshots, benchmarks or live service telemetry. No microphone access, model API calls, tracking scripts or external fonts are used.
+The additions follow the use of explicit text labels and decorative SVGs documented in GitHub Primer, and visible language links documented by W3C Internationalization. These are interaction references, not a claim of copying a portfolio or winning an award.
 
-## Accessibility and checks
+- https://primer.style/accessibility/patterns/primer-components/icons/
+- https://www.w3.org/International/questions/qa-navigation-select
 
-Semantic HTML, native expandable notes, keyboard focus, navigation landmarks, a skip link, live filter counts, mobile-menu Escape handling, reduced-motion support and an animation pause control are provided. Core content and project links remain readable without JavaScript. Motion stops offscreen and when the tab is hidden.
-
-`npm test` checks JavaScript syntax, unique anchors, project count, local asset references, external-link attributes, metadata, the static entry point and Pages support files. Browser interaction testing was performed in Chromium using the exact HTML/CSS/JS loaded in memory, covering 320, 375, 390, 768, 1024, 1440 and 1920px widths, project filters, expandable notes, mobile navigation, no-JavaScript content and reduced motion.
+No tracking scripts, model calls, microphone access, private project source, credentials or customer data are included. Project artwork is conceptual rather than live service telemetry.
